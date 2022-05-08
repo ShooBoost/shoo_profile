@@ -6,11 +6,6 @@
       </h1>
       <h1 class="banner__marquee banner__marquee--second">Shoo Lin</h1>
     </div>
-    <h2 class="banner__contact">
-      <a class="banner__link" href="mailto:r06723063@g.ntu.edu.tw"
-        >r06723063@g.ntu.edu.tw</a
-      >
-    </h2>
     <svg class="banner__circle" height="100%" width="100%">
       <circle
         cx="50%"
@@ -21,6 +16,12 @@
         fill="none"
       />
     </svg>
+    <h2 class="banner__contact">
+      <a class="banner__link" href="mailto:r06723063@g.ntu.edu.tw"
+        >r06723063@g.ntu.edu.tw</a
+      >
+    </h2>
+    <span class="material-icons-outlined"> swipe_up </span>
   </div>
   <div class="gallery gallery--blue">
     <ul class="gallery__intros">
@@ -74,7 +75,7 @@
         class="gallery__intro"
         target="_blank"
         href="https://shooboost.github.io/taiwan_bus/"
-        >
+      >
         <span>Shoo's Work</span>
         公車路線網站
         <span class="material-icons-outlined gallery__scaleAnimate">
@@ -153,14 +154,45 @@
       </li>
     </ul>
     <div class="profile_subsubject">
-      <p class="profile_animationCarousel">持續精進前端語法、Clean Code、演算法、資料結構中 (❍ᴥ❍ʋ)</p>
+      <p class="profile_animationCarousel">
+        持續精進前端語法、Clean Code、演算法、資料結構中 (❍ᴥ❍ʋ)
+      </p>
     </div>
+  </div>
+  <div class="banner banner--primary">
+    <a href="mailto:r06723063@g.ntu.edu.tw" class="banner__title">
+      <h1 class="banner__marquee banner__marquee--first">
+        <span class="banner__link">r06723063@g.ntu.edu.tw</span>
+      </h1>
+      <h1 class="banner__marquee banner__marquee--second">
+        Front-End<br />Developer <br />
+        Shoo Lin
+      </h1>
+    </a>
+    <svg class="banner__circle" height="100%" width="100%">
+      <circle
+        cx="50%"
+        cy="50%"
+        r="25%"
+        stroke="rgba(255, 255, 255, 0.3)"
+        stroke-width="120"
+        fill="none"
+      />
+    </svg>
   </div>
 </template>
 
 <script>
 export default {
   name: "Home",
+  mounted() {
+    setTimeout(() => {
+      window.scrollTo({
+        top: 100,
+        behavior: "smooth",
+      });
+    }, 3000);
+  },
 };
 </script>
 <style lang="scss">
@@ -239,8 +271,10 @@ export default {
   justify-content: center;
   align-items: center;
   flex-direction: column;
+  overflow: hidden;
 
   .banner__title {
+    z-index: 10;
     position: relative;
     width: 100%;
     height: 40%;
@@ -248,8 +282,12 @@ export default {
     display: flex;
     align-items: center;
     justify-content: center;
+    overflow: hidden;
+    color: #fff;
   }
   .banner__marquee {
+    width: 100%;
+    text-align: center;
     opacity: 0;
     animation-name: showAndHide;
     position: absolute;
@@ -258,21 +296,36 @@ export default {
     animation-iteration-count: infinite;
     font-size: 72px;
     margin: 0;
+    overflow: hidden;
+    @include pad {
+      font-size: 60px;
+    }
   }
   .banner__marquee--second {
     animation-delay: 2.5s;
   }
   .banner__contact {
+    z-index: 10;
     margin: 0;
+    border-radius: 12px;
+    padding: 4px 12px;
+    &:hover {
+      background-color: rgb(255, 125, 153);
+      color: rgb(255, 255, 255);
+    }
   }
   .banner__link {
     color: white;
+    @include pad {
+      font-size: 24px;
+    }
   }
   .banner__circle {
     position: absolute;
     animation-name: scaleDownAndUp;
     animation-duration: 5s;
     animation-iteration-count: infinite;
+    overflow: hidden;
   }
 }
 .banner--primary {
@@ -423,6 +476,7 @@ export default {
   @include pad {
     height: initial;
     display: block;
+    padding: 20px;
   }
   .profile_subject {
     margin: 0 0 18px 0;
@@ -459,7 +513,7 @@ export default {
     }
   }
   & :last-child {
-    margin-right:  0;
+    margin-right: 0;
   }
 
   .profile_title {
@@ -473,7 +527,7 @@ export default {
     font-weight: bolder;
     @include pad {
       padding: 8px 12px;
-      font-size: 16px;
+      font-size: 20px;
     }
   }
   .profile_title_yellow {
