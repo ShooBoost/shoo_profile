@@ -1,10 +1,10 @@
 <template>
   <div class="banner banner--primary">
     <div class="banner__title">
-      <h1 class="banner__marquee banner__marquee--first">
+      <h1 class="banner__marquee">
         Front-End<br />Developer
       </h1>
-      <h1 class="banner__marquee banner__marquee--second">Shoo Lin</h1>
+      <h1 class="banner__marquee">Shoo Lin</h1>
     </div>
     <svg class="banner__circle" height="100%" width="100%">
       <circle
@@ -17,8 +17,8 @@
       />
     </svg>
     <h2 class="banner__contact">
-      <a class="banner__link" href="mailto:r06723063@g.ntu.edu.tw"
-        >r06723063@g.ntu.edu.tw</a
+      <a class="banner__link" href="mailto:shooboost@gmail.com"
+        >shooboost@gmail.com</a
       >
     </h2>
     <span class="material-icons-outlined"> swipe_up </span>
@@ -47,9 +47,12 @@
       </li>
       <li class="gallery__intro">
         <h4>使用工具</h4>
-        <p>Vue3 Cli 管理元件</p>
-        <p>Sass 管理樣式結構</p>
-        <p>Axios 串接 TDX 、Leaflet API</p>
+        <p>Vue CLI 建置該專案</p>
+        <p>Vue Router 設定前端路由</p>
+        <p>Axios 串接 TDX API 取得台灣景點資料</p>
+        <p>Bootstrap5 切版</p>
+        <p>Sass 管理 CSS 樣式結構</p>
+        <p>Leaflet Map 套件呈現地圖</p>
       </li>
       <li class="gallery__intro">
         <h4>參考版型</h4>
@@ -94,9 +97,10 @@
       </li>
       <li class="gallery__intro">
         <h4>使用工具</h4>
-        <p>Vue3 Cli 管理元件</p>
-        <p>Sass 管理樣式結構</p>
-        <p>Axios 串接 TDX 、Leaflet API</p>
+        <p>Vue CLI 建置該專案</p>
+        <p>Axios 串接 TDX API 取得台灣景點資料</p>
+        <p>Sass 管理 CSS 樣式結構</p>
+        <p>Leaflet Map 套件呈現地圖</p>
       </li>
       <li class="gallery__intro">
         <h4>參考版型</h4>
@@ -115,11 +119,11 @@
       frameborder="0"
     ></iframe>
   </div>
-  <div class="profile">
+  <div class="profile profile--yellow">
     <h3 class="profile_subject">Shoo's Profile</h3>
     <ul class="profile_list">
       <li class="profile_item">
-        <h6 class="profile_title profile_title_yellow">Skills</h6>
+        <h6 class="profile_title">Skills</h6>
         <div class="profile_detail">
           <p>Javascript(ES6)</p>
           <p>Vue.js</p>
@@ -129,7 +133,7 @@
         </div>
       </li>
       <li class="profile_item">
-        <h6 class="profile_title profile_title_yellow">Work Experience</h6>
+        <h6 class="profile_title profile_title--yellow">Work Experience</h6>
         <div class="profile_detail">
           <p>數位金融實習生</p>
           <p>台新金控數位金融處 Richart 金融部</p>
@@ -137,7 +141,7 @@
         </div>
       </li>
       <li class="profile_item">
-        <h6 class="profile_title profile_title_yellow">Education</h6>
+        <h6 class="profile_title profile_title--yellow">Education</h6>
         <div class="profile_detail">
           <p>財務金融研究所</p>
           <p>國立台灣大學</p>
@@ -145,7 +149,7 @@
         </div>
       </li>
       <li class="profile_item">
-        <h6 class="profile_title profile_title_yellow">Certifications</h6>
+        <h6 class="profile_title profile_title--yellow">Certifications</h6>
         <div class="profile_detail">
           <p>TOEIC</p>
           <p>915</p>
@@ -160,9 +164,9 @@
     </div>
   </div>
   <div class="banner banner--primary">
-    <a href="mailto:r06723063@g.ntu.edu.tw" class="banner__title">
+    <a href="mailto:shooboost@gmail.com" class="banner__title">
       <h1 class="banner__marquee banner__marquee--first">
-        <span class="banner__link">r06723063@g.ntu.edu.tw</span>
+        <span class="banner__link">shooboost@gmail.com</span>
       </h1>
       <h1 class="banner__marquee banner__marquee--second">
         Front-End<br />Developer <br />
@@ -188,7 +192,7 @@ export default {
   mounted() {
     setTimeout(() => {
       window.scrollTo({
-        top: 100,
+        top: window.scrollY + 100,
         behavior: "smooth",
       });
     }, 3000);
@@ -297,12 +301,12 @@ export default {
     font-size: 72px;
     margin: 0;
     overflow: hidden;
+    &:first-child {
+      animation-delay: 2.5s;
+    }
     @include pad {
       font-size: 60px;
     }
-  }
-  .banner__marquee--second {
-    animation-delay: 2.5s;
   }
   .banner__contact {
     z-index: 10;
@@ -342,7 +346,7 @@ export default {
   align-items: center;
   justify-content: center;
   @include pad {
-    height: 150vh;
+    height: 160vh;
     padding: 20px 20px;
   }
 
@@ -466,7 +470,6 @@ export default {
 }
 .profile {
   height: 100vh;
-  background-color: rgb(255, 238, 165);
   padding: 36px 48px;
   box-sizing: border-box;
   overflow: scroll;
@@ -480,15 +483,11 @@ export default {
   }
   .profile_subject {
     margin: 0 0 18px 0;
-    color: #fff;
-    background-color: rgb(255, 145, 0);
     text-align: center;
     font-size: 32px;
     font-weight: bolder;
   }
   .profile_subsubject {
-    color: #fff;
-    background-color: rgb(255, 145, 0);
     text-align: center;
     font-size: 28px;
     padding: 6px 0px;
@@ -520,7 +519,6 @@ export default {
     padding: 0;
     margin: 0;
     border-radius: 12px 12px 0px 0px;
-    background-color: rgba(255, 255, 255, 0.8);
     display: inline-block;
     padding: 12px 24px;
     font-size: 18px;
@@ -530,19 +528,13 @@ export default {
       font-size: 20px;
     }
   }
-  .profile_title_yellow {
-    color: rgb(255, 170, 0);
-  }
   .profile_detail {
     border-radius: 0px 12px 12px 12px;
     padding: 24px;
-    background-color: rgba(255, 255, 255, 0.8);
-    box-shadow: 10px 10px rgb(238, 159, 0);
     p {
       margin-top: 0;
       margin-bottom: 14px;
       font-size: 18px;
-      color: rgb(131, 90, 7);
       @include pad {
         margin-bottom: 8px;
         font-size: 16px;
@@ -557,6 +549,25 @@ export default {
     margin: 0;
     @include pad {
       animation: carouselPad 6s linear infinite;
+    }
+  }
+}
+.profile--yellow {
+  background-color: rgb(255, 238, 165);
+  .profile_subject,
+  .profile_subsubject {
+    color: #fff;
+    background-color: rgb(255, 145, 0);
+  }
+  .profile_title {
+    background-color: rgba(255, 255, 255, 0.8);
+    color: rgb(255, 170, 0);
+  }
+  .profile_detail {
+    background-color: rgba(255, 255, 255, 0.8);
+    box-shadow: 10px 10px rgb(238, 159, 0);
+    p {
+      color: rgb(131, 90, 7);
     }
   }
 }
