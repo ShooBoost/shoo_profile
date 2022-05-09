@@ -98,7 +98,7 @@
       <li class="gallery__intro">
         <h4>使用工具</h4>
         <p>Vue CLI 建置該專案</p>
-        <p>Axios 串接 TDX API 取得台灣景點資料</p>
+        <p>Axios 串接 TDX API 取得台灣公車路線資料</p>
         <p>Sass 管理 CSS 樣式結構</p>
         <p>Leaflet Map 套件呈現地圖</p>
       </li>
